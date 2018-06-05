@@ -1,4 +1,5 @@
 let AWS = require('aws-sdk');
+const ddb = new AWS.DynamoDB.DocumentClient();
 const s3 = new AWS.S3();
 console.log('Loading function: Publish Activity Stream...');
 
