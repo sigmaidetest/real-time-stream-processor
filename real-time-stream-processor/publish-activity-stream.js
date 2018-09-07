@@ -1,12 +1,10 @@
-let AWS = require('aws-sdk');
-const ddb = new AWS.DynamoDB.DocumentClient();
-const s3 = new AWS.S3();
 console.log('Loading function: Publish Activity Stream...');
 
+const AWS = require('aws-sdk');
 const kinesis = new AWS.Kinesis();
 
 exports.handler = function (event, context, callback) {
-    console.log('Received event:', JSON.stringify(event, null, 2));
+	console.log('Received event:', JSON.stringify(event, null, 2));
 
     // activity reported through API proxy
     let activity = JSON.stringify(event.body);
@@ -50,5 +48,5 @@ exports.handler = function (event, context, callback) {
             };
             callback(null, response);
         });
-        
+
 }
